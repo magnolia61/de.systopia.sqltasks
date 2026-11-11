@@ -142,7 +142,7 @@ abstract class CRM_Sqltasks_Action_ResultHandler extends CRM_Sqltasks_Action {
       $should_run = $this->shouldErrorHandlerRun($this->context['actions']);
     }
     if (!$should_run) {
-      $reason = ($this->id == 'error')
+      $reason = ($this->id === 'error')
         ? 'no errors were recorded'
         : "actions didn't do anything";
       $this->log("Skipping {$this->getName()}, {$reason}");

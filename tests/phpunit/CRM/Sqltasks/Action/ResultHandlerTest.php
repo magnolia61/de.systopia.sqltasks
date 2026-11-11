@@ -133,7 +133,7 @@ class CRM_Sqltasks_Action_ResultHandlerTest extends CRM_Sqltasks_Action_Abstract
    * in terms of the error handler, not of a success handler the task may not
    * even have.
    */
-  public function testSkippedErrorHandlerIsNamedInTheLog() {
+  public function testSkippedErrorHandlerIsNamedInTheLog(): void {
     $config = [
       'version' => CRM_Sqltasks_Config_Format::CURRENT,
       'actions' => [
@@ -163,7 +163,7 @@ class CRM_Sqltasks_Action_ResultHandlerTest extends CRM_Sqltasks_Action_Abstract
       'Skipping Error Handler, no errors were recorded',
       'The skipped handler should be named, with the reason it was skipped'
     );
-    $this->assertStringNotContainsString(
+    self::assertStringNotContainsString(
       'Success Handler',
       implode("\n", $this->log),
       'This task has no success handler, so the log should not mention one'
@@ -174,7 +174,7 @@ class CRM_Sqltasks_Action_ResultHandlerTest extends CRM_Sqltasks_Action_Abstract
    * The success handler keeps its own message: it is skipped when none of the
    * actions reported doing anything.
    */
-  public function testSkippedSuccessHandlerKeepsItsMessage() {
+  public function testSkippedSuccessHandlerKeepsItsMessage(): void {
     $config = [
       'version' => CRM_Sqltasks_Config_Format::CURRENT,
       'actions' => [
